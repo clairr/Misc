@@ -1,0 +1,29 @@
+github hello-world: https://guides.github.com/activities/hello-world/
+
+git init
+  inicializa as ferramentas do git para fazer o controle de versão em um diretório
+
+O git trabalha com 3 áreas:
+  uma área de trabalho onde são realizadas as atividades;
+  uma área intermediária, para listar as modificações realizadas em comparação com a imagem anterior;
+  um repositório, onde a versão permanente é armazenada.
+  
+  Os arquivos são criados e editados na área de trabalho; adicionados a área intermediária para verificação
+  e por fim, adicionados ao repositório.
+  
+git add NomeArquivo
+  adiciona a área intermediária o arquivo para fins de controle de versão
+  
+git diff NomeArquivo
+  exibe as diferenças entre as versões do arquivo.
+
+git commit -m "mensagem"
+  Passo final, que confirma o arquivo no repositório.
+  
+git log
+  Lista os commits realizados
+  
+O fluxo básico é:
+  edição do arquivo, adição a stage area, commit
+  Ao repetir o processo e editar um arquivo já existente é possível verificar a diferença entre as versões.
+  
