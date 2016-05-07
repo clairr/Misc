@@ -27,3 +27,13 @@ O fluxo básico é:
   edição do arquivo, adição a stage area, commit
   Ao repetir o processo e editar um arquivo já existente é possível verificar a diferença entre as versões.
   
+git checkout HEAD NomeArquivo
+  recupera a última versão confirmada de um arquivo
+  
+git reset HEAD NomeArquivo
+  Enquanto git add adiciona um arquivo da área de trabalho a stage, git reset HEAD NomeArquivo retorna para a stage a 
+  versão já confirmada. Em outras palavras, remove a versão anteriormente adicionada a stage area.
+  
+git reset SHA
+  permite voltar o projeto para um ponto no passado, mais especificamente para o commit indicado por SHA
+  
