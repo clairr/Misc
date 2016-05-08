@@ -1,4 +1,5 @@
 github hello-world: https://guides.github.com/activities/hello-world/
+----------------------------------------------------------------------
 
 git init
   inicializa as ferramentas do git para fazer o controle de versão em um diretório
