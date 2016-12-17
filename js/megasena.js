@@ -1,5 +1,5 @@
 
-function getConcursosOnline(numeroConcurso, resultArray){
+function getConcurso(numeroConcurso, resultArray){
 
 	// extrai dezenas do texto html retornado
 	function getDezenas(texto) {
@@ -42,3 +42,48 @@ function getConcursosOnline(numeroConcurso, resultArray){
 };
 
 var texto='8|4.493.748,19|<span class="num_sorteio"><ul><li>53</li><li>17</li><li>38</li><li>04</li><li>47</li><li>37</li></ul></span>|0|0,00|60|16.084,11|5.262|183,40|<a class="btn_conc_ant_megasena" href="javascript:carrega_concurso(7);" tabindex="27" title="Ver concurso anterior">Ver concurso anterior</a>|<a class="btn_conc_prx_megasena" href="javascript:carrega_concurso(9);" tabindex="27" tilte="Ver próximo concurso">Ver próximo concurso</a>|29/04/1996|Brasília|DF|A||||0,00||<span class="num_sorteio"><ul><li>04</li><li>17</li><li>37</li><li>38</li><li>47</li><li>53</li></ul></span>||||';
+// load and save functions
+var fs=require('fs')
+function loadConcursos() {
+	var data,
+	concursos;
+
+	try {
+
+		data = fs.readFileSync('concursos.txt'); 	
+		try{
+			concursos = JSON.parse(data);
+		} catch (err) {
+			console.log(err);
+		}
+		return concursos;
+
+	} catch (err) {
+ 	  if (err.errno==-2) { //no such file or directory
+ 		return concursos =[];
+ 	  } else {
+ 		console.log(err);
+ 	  }
+    }
+};
+
+function saveConcursos(concursos){
+	var data = JSON.stringify(concursos);
+	fs.writeFile('concursos.txt', data, function(err){
+		if (err) {
+			console.log('Error saving data.' + err.message)
+		}
+	});
+};
+
+function loadPendentes(d){ 
+	for (i=1; i<d.length; i++) 
+		if (d[i]==null) 
+			getConcurso(i,d); 
+}
+
+d=loadConcursos()          // Lê concursos já armazenados
+getConcurso(0,d)    // obtem o último concurso disponível
+// Aguarda 2 segundos e então carrega concursos que ainda não foram carregados          
+setTimeout( function(){loadPendentes(d)}, 2000);
+
