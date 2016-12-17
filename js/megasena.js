@@ -33,7 +33,10 @@ function getConcursosOnline(numeroConcurso, resultArray){
 	    console.log("processando concurso "+numeroConcurso);
 	    resultArray[numeroConcurso] = {"numero": numeroConcurso, "data": dataConcurso, "dezenas": dezenas};
     } else {
-	  resultArray[0] = error;
+	  if (resultArray[0] == null){
+	  	resultArray[0]=[];
+	  } 
+	  resultArray[0].push(error);
 	};	
   });
 };
