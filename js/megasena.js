@@ -87,3 +87,17 @@ getConcurso(0,d)    // obtem o último concurso disponível
 // Aguarda 2 segundos e então carrega concursos que ainda não foram carregados          
 setTimeout( function(){loadPendentes(d)}, 2000);
 
+//---------------
+var http = require('http');
+var url = require('url');
+var querystring = require('querystring');
+
+server = http.createServer(function(req, res){
+	path = url.parse(req.url).path
+	indice = path.substr(1);
+	res.writeHead(200, {"Content-Type": "text/json"});
+	res.end(JSON.stringify(d[indice]));
+	console.log(indice + ' : '+JSON.stringify(d[indice]) );
+});
+
+server.listen(8446);
