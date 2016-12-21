@@ -3,10 +3,10 @@
         <title>Resultados da Mega!</title>
         
         <link rel="stylesheet" href="./css/bootstrap.min.css" />
-        <link rel="stylesheet" href="tabl.css" />
+        <link rel="stylesheet" href="table.css" />
     </head>
     <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -24,17 +24,17 @@
 
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Procurar">
+                    <input type="text" class="form-control" placeholder="Procurar" id="sorteio">
                 </div>
-                <button type="submit" class="btn btn-success">OK</button>
+                <button type="button" class="btn btn-success" id="btnOk">OK</button>
                 <button type="submit" class="btn btn-primary">Limpar</button>
             </form>
 
-        </div><!-- /.navbar-collapse -->
+        </div><!--  /.navbar-collapse -->
     </div>
 </nav>
 
-<table class="table table-hover table-condensed">
+<table class="table table-hover table-condensed"  id="table-concursos">
     <tr>
         <th>Sorteio</th>
         <th>Data</th>
@@ -45,47 +45,14 @@
         <td>17/12/2016</td>
         <td>[ 7, 40, 54, 15, 3, 45 ]</td>
     </tr>
-    <tr>
-        <td>1885</td>
-        <td>14/12/2016</td>
-        <td>[ 7, 40, 54, 15, 3, 45 ]</td>
-    </tr>
-    <tr>
-        <td>1884</td>
-        <td>12/12/2016</td>
-        <td>[ 7, 40, 54, 15, 3, 45 ]</td>
-    </tr>
-    <tr>
-        <td>1883</td>
-        <td>10/12/2016</td>
-        <td>[ 7, 40, 54, 15, 3, 45 ]</td>
-    </tr>
+
 </table>
 
-<div class="<div class="container-fluid">
-<div class="col-xs-12">
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-</div>
-</div>
-        <script src="./js/jquery-3.1.1.min.js" />
+        <script src="./main.js"></script>
+
+        <!--script src="./js/jquery-3.1.1.min.js" />
+
         <script src="./js/bootstrap.min.js" />
+        -->
     </body>
 </html>

@@ -91,13 +91,22 @@ setTimeout( function(){loadPendentes(d)}, 2000);
 var http = require('http');
 var url = require('url');
 var querystring = require('querystring');
+var express = require('express');
+var app = express()
 
-server = http.createServer(function(req, res){
-	path = url.parse(req.url).path
-	indice = path.substr(1);
+app.get('/:sorteio', function(req, res){
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.writeHead(200, {"Content-Type": "text/json"});
-	res.end(JSON.stringify(d[indice]));
-	console.log(indice + ' : '+JSON.stringify(d[indice]) );
+	res.end(JSON.stringify(d[req.params.sorteio]));
+	console.log(req.params.sorteio + ' : '+JSON.stringify(d[req.params.sorteio]) );
+
+});
+app.get('/index.html', function(req, res){
+		res.writeHead(200, {"Content-Type": "text/html"});
+		res.write(fs.readFileSync('./index.html'));
+		res.end();
 });
 
-server.listen(8446);
+
+app.listen(8446);
