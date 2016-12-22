@@ -23,7 +23,7 @@ function getConcurso(numeroConcurso, resultArray){
     {target = primeiro+numeroConcurso}
   else
     {target = ultimo};
-  console.log(target);
+  //console.log(target);
 
   request({uri: target, jar:true, encoding: 'latin1'}, function(error, response, data){
     if( !error && response.statusCode==200) {    	
@@ -94,6 +94,7 @@ var app = express();
 app.use(cors());
 
 app.use('/js',express.static('js'));
+app.use('/scripts',express.static('scripts'));
 app.use('/css',express.static('css'));
 app.use('/fonts',express.static('fonts'));
 
@@ -102,15 +103,13 @@ app.get('/sorteio/:numero', function(req, res, next){
 	//res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.writeHead(200, {"Content-Type": "text/json"});
 	res.end(JSON.stringify(d[req.params.numero]));
-	console.log(req.params.numero + ' : '+JSON.stringify(d[req.params.numero]) );
+	//console.log(req.params.numero + ' : '+JSON.stringify(d[req.params.numero]) );
 
 });
 
 app.get('/all', function(req, res, next){
-	console.log('in');
 	res.writeHead(200, {"Content-Type": "text/json"});
 	res.end(JSON.stringify(d));
-	console.log('out');
 });
 
 app.get('/', function(req, res, next){
