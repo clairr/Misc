@@ -22,37 +22,29 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" onSubmit="return false;">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Procurar" id="sorteio">
+                    <input type="text" class="form-control" placeholder="Procurar" id="txtSorteio">
                 </div>
                 <button type="button" class="btn btn-success" id="btnOk">OK</button>
-                <button type="submit" class="btn btn-primary">Limpar</button>
+                <button type="button" class="btn btn-primary" id="btnTodos">Todos</button>
+                <button type="button" class="btn btn-primary" id="btnLimpar">Limpar</button>
             </form>
 
         </div><!--  /.navbar-collapse -->
     </div>
 </nav>
-
-<table class="table table-hover table-condensed"  id="table-concursos">
-    <tr>
-        <th>Sorteio</th>
-        <th>Data</th>
-        <th>Dezenas</th>
-    </tr>
-    <tr>
-        <td>1886</td>
-        <td>17/12/2016</td>
-        <td>[ 7, 40, 54, 15, 3, 45 ]</td>
-    </tr>
-
+<div class="table-responsive">
+<table class="table table-hover table-condensed table-striped"  id="table-concursos">
+        <tr>
+            <th>Sorteio</th>
+            <th>Data</th>
+            <th>Dezenas</th>
+        </tr>
 </table>
-
-        <script src="./main.js"></script>
-
-        <!--script src="./js/jquery-3.1.1.min.js" />
-
+</div>
+        <script src="./js/main.js"></script>
+        <script src="./js/jquery-3.1.1.min.js" />
         <script src="./js/bootstrap.min.js" />
-        -->
     </body>
 </html>

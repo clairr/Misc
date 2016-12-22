@@ -82,30 +82,43 @@ function loadPendentes(d){
 			getConcurso(i,d); 
 }
 
-d=loadConcursos()          // Lê concursos já armazenados
-getConcurso(0,d)    // obtem o último concurso disponível
+d=loadConcursos();          // Lê concursos já armazenados
+getConcurso(0,d);    // obtem o último concurso disponível
 // Aguarda 2 segundos e então carrega concursos que ainda não foram carregados          
 setTimeout( function(){loadPendentes(d)}, 2000);
-
 //---------------
-var http = require('http');
-var url = require('url');
-var querystring = require('querystring');
 var express = require('express');
-var app = express()
+var cors = require('cors');
+var app = express();
 
-app.get('/:sorteio', function(req, res){
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use(cors());
+
+app.use('/js',express.static('js'));
+app.use('/css',express.static('css'));
+app.use('/fonts',express.static('fonts'));
+
+app.get('/sorteio/:numero', function(req, res, next){
+	//res.header("Access-Control-Allow-Origin", "*");
+	//res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.writeHead(200, {"Content-Type": "text/json"});
-	res.end(JSON.stringify(d[req.params.sorteio]));
-	console.log(req.params.sorteio + ' : '+JSON.stringify(d[req.params.sorteio]) );
+	res.end(JSON.stringify(d[req.params.numero]));
+	console.log(req.params.numero + ' : '+JSON.stringify(d[req.params.numero]) );
 
 });
-app.get('/index.html', function(req, res){
-		res.writeHead(200, {"Content-Type": "text/html"});
-		res.write(fs.readFileSync('./index.html'));
-		res.end();
+
+app.get('/all', function(req, res, next){
+	console.log('in');
+	res.writeHead(200, {"Content-Type": "text/json"});
+	res.end(JSON.stringify(d));
+	console.log('out');
+});
+
+app.get('/', function(req, res, next){
+	
+	res.writeHead(200, {"Content-Type": "text/html"});
+	res.write(fs.readFileSync('./index.html'));
+	res.end();
+	
 });
 
 
