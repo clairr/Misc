@@ -1,49 +1,94 @@
 <html>
-    <head>
-        <title>Resultados da Mega!</title>
-        
-        <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    </head>
-    <body>
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Resultados</a>
-        </div>
+<head>
+    <title>Resultados da Mega!</title>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <style type="text/css">
+        ul.resultado-loteria {
+            margin:0px 20px 20px 0px;
+            text-align: center;
+        }
+        ul.resultado-loteria>li {
+          background: #166CCC;
+          border-radius: 1em;
+          -moz-border-radius: 1em;
+          -webkit-border-radius: 1em;
+          color: #ffffff;
+          display: inline-block;
+          font-weight: bold;
+          line-height: 2em;
+          width: 2em; 
+          margin-right: 5px;
+          text-align: center;
+      }
 
-            <form class="navbar-form navbar-left" role="search" onSubmit="return false;">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Procurar" id="txtSorteio">
+  </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Resultados</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                        <form class="navbar-form navbar-left" role="search" onSubmit="return false;">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Procurar" id="txtSorteio">
+                            </div>
+                            <button type="button" class="btn btn-success" id="btnOk">OK</button>
+                            <button type="button" class="btn btn-primary" id="btnTodos">Todos</button>
+                            <button type="button" class="btn btn-primary" id="btnLimpar">Limpar</button>
+                        </form>
+
+                    </div><!--  /.navbar-collapse -->
                 </div>
-                <button type="button" class="btn btn-success" id="btnOk">OK</button>
-                <button type="button" class="btn btn-primary" id="btnTodos">Todos</button>
-                <button type="button" class="btn btn-primary" id="btnLimpar">Limpar</button>
-            </form>
-
-        </div><!--  /.navbar-collapse -->
+            </nav> 
+        </div>
+        <div class="col-lg-3"></div>
     </div>
-</nav>
-<div class="table-responsive">
-<table class="table table-hover table-condensed table-striped"  id="table-concursos">
-        <tr>
-            <th>Sorteio</th>
-            <th>Data</th>
-            <th>Dezenas</th>
-        </tr>
-</table>
-</div>
-        <script src="./scripts/main.js"></script>
-        <script src="./js/jquery-3.1.1.min.js" />
-        <script src="./js/bootstrap.min.js" />
-    </body>
+
+    <div class="row"  vertical-align:"top">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <ul class="resultado-loteria">
+                <li>16</li><li>23</li><li>25</li><li>28</li><li>30</li><li>44</li>
+            </ul>
+        </div>
+        <div class="col-lg-3"></div>        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed table-striped"  id="table-concursos">
+                    <tr>
+                        <th>Sorteio</th>
+                        <th>Data</th>
+                        <th>Dezenas</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+    <script src="./scripts/main.js"></script>
+    <script src="./js/jquery-3.1.1.min.js" />
+    <script src="./js/bootstrap.min.js" />
+
+</body>
 </html>
