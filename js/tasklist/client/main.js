@@ -3,7 +3,8 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Tasks = new Mongo.Collection('tasks');
+
+Meteor.subscribe('tasks');
 
 Template.tasks.helpers({
 	tasks: function(){
@@ -14,19 +15,15 @@ Template.tasks.helpers({
 Template.tasks.events({
 	"submit #add-task": function(event){
 		var name = event.target.name.value;
+		Meteor.call('addTask', name);
 		
-		Tasks.insert({
-			name: name,
-			createdAt: new Date(),
-			userId: Meteor.userId()
-		});
 
 		event.target.name.value='';
 		return false;
 	},
 	"click #delete-task": function(event){
 		if(confirm("Delete task?")){
-			Tasks.remove(this._id);
+			Meteor.call('deleteTask', this._id);			
 		}
 
 		return false;
