@@ -5,7 +5,7 @@ var btnTodos=document.getElementById('btnTodos');
 var btnLimpar=document.getElementById('btnLimpar');
 var txtSorteio=document.getElementById('txtSorteio');
 var sorteios;
-var pageSize=12;
+var pageSize=16;
 
 //function numericSort(a, b){return a-b;}
 
@@ -35,7 +35,6 @@ function addRow(data){
 function populateResult(index){
     ulResultado.innerHTML='';
     var dzn=sorteios[index].dezenas;
-    //dzn.sort(numericSort);
     for(i=0; i<6; i++){
     	var li=document.createElement("li");
     	li.appendChild(document.createTextNode(dzn[i]));
