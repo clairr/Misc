@@ -1,6 +1,3 @@
-p, span, li, a {
-  color: red;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: arial;
+#all-articles h2+p{
+  color: green;
 }
